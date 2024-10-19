@@ -1,0 +1,26 @@
+ @model IEnumerable<NoteApp.Models.Note>
+
+<h2>Notes</h2>
+<a href="/Notes/Create">Create New Note</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Created At</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var note in Model)
+        {
+            <tr>
+                <td>@note.Title</td>
+                <td>@note.CreatedAt.ToShortDateString()</td>
+                <td>
+                    <a href="/Notes/Edit/@note.Id">Edit</a> |
+                    <a href="/Notes/Delete/@note.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
