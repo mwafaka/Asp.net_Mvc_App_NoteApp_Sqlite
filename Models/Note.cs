@@ -5,10 +5,14 @@ public class Note
 {
     public int Id { get; set; }
 
-    [Required]
+  [Required(ErrorMessage = "Title is required.")]
+    [StringLength(10, ErrorMessage = "Title cannot exceed 10 characters.")]
     public string? Title { get; set; }
 
-    [Required]
+    
+    [Required(ErrorMessage = "Content is required.")]
+   [StringLength(10, ErrorMessage = "Title cannot exceed 10 characters.")]
+
     public string? Content { get; set; }
 
     public DateTime CreatedAt { get; set; } = DateTime.Now;
